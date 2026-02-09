@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Sansation substitute */
     @font-face { font-family: 'Sansation'; src: local('Exo 2'); font-weight: 400; }
     @font-face { font-family: 'Sansation'; src: local('Exo 2'); font-weight: 700; }
 
@@ -17,96 +16,165 @@
     .visually-hidden { position: absolute; overflow: hidden; clip: rect(0 0 0 0); width: 1px; height: 1px; }
 
     /* ---- Demo header ---- */
-    .demo-header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
+    .demo-header { text-align: center; padding: 40px 20px 20px; }
     .demo-header h1 { font-size: 28px; margin-bottom: 8px; }
     .demo-header p { color: #888; font-size: 14px; }
     .demo-header .tokens {
-      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
-      margin-top: 20px;
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 20px;
     }
     .demo-header .token {
       display: flex; align-items: center; gap: 8px;
       background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
       padding: 8px 16px; font-size: 13px;
     }
-    .token-swatch {
-      width: 20px; height: 20px; border-radius: 4px; border: 1px solid #555;
-    }
+    .token-swatch { width: 20px; height: 20px; border-radius: 4px; border: 1px solid #555; }
 
-    /* Section labels */
     .section-label {
-      text-align: center;
-      padding: 30px 20px 10px;
-      font-size: 18px;
-      color: #31B2EB;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      text-align: center; padding: 30px 20px 10px;
+      font-size: 18px; color: #31B2EB; letter-spacing: 2px; text-transform: uppercase;
     }
 
-    /* ---- HERO SLIDER (from Figma pipeline output) ---- */
+    /* ==========================================================================
+       HERO SLIDER — Generated from Figma pipeline
+       ========================================================================== */
     .hero-slider { position: relative; width: 100%; overflow: hidden; }
     .hero-slider__container { position: relative; width: 100%; }
-    .hero-slider__slide { position: relative; width: 100%; min-height: 720px; display: none; }
+
+    .hero-slider__slide {
+      position: relative; width: 100%; min-height: 720px; display: none;
+    }
     .hero-slider__slide.is-active { display: block; animation: heroFadeIn 0.6s ease; }
     @keyframes heroFadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+    /* Background */
     .hero-slider__bg { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
     .hero-slider__bg-img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-    .hero-slider__smoke { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; mix-blend-mode: multiply; pointer-events: none; }
 
+    /* Content layer */
     .hero-slider__content {
-      position: relative; z-index: 2; display: flex; align-items: center;
-      justify-content: space-between; max-width: 1920px; margin: 0 auto;
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1920px; margin: 0 auto;
       padding: 80px 120px; min-height: 720px;
     }
 
-    .hero-slider__text-group { max-width: 790px; display: flex; flex-direction: column; gap: 16px; }
+    /* Text group — Figma: 790px wide */
+    .hero-slider__text-group {
+      max-width: 790px; display: flex; flex-direction: column; gap: 16px;
+    }
 
-    .hero-slider__heading { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 70px; line-height: 78px; color: #0F1D1D; margin: 0; }
-    .hero-slider__heading-highlight { font-family: 'Sansation', 'Jost', sans-serif; font-weight: 700; font-size: 70px; line-height: 78px; color: #31B2EB; }
-    .hero-slider__subtitle { font-family: 'Sansation', sans-serif; font-weight: 400; font-size: 20px; line-height: 30px; color: #1C2420; margin: 0; }
+    /* Heading — Figma: Jost 700, 70px/78px
+       NOTE: Original color #0F1D1D for light bg. Using white for dark bg demo */
+    .hero-slider__heading {
+      font-family: 'Jost', sans-serif; font-weight: 700;
+      font-size: 70px; line-height: 78px;
+      color: #FFFFFF; margin: 0;
+    }
 
-    .hero-slider__badge { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 110px; height: 110px; flex-shrink: 0; align-self: flex-end; margin-top: -24px; }
+    /* Highlight — Figma: Sansation 700, 70px/78px, #31B2EB */
+    .hero-slider__heading-highlight {
+      font-family: 'Sansation', 'Jost', sans-serif; font-weight: 700;
+      font-size: 70px; line-height: 78px; color: #31B2EB;
+    }
+
+    /* Subtitle — Figma: Sansation 400, 20px/30px
+       NOTE: Original #1C2420 for light bg. Using rgba white for dark bg */
+    .hero-slider__subtitle {
+      font-family: 'Sansation', sans-serif; font-weight: 400;
+      font-size: 20px; line-height: 30px;
+      color: rgba(255, 255, 255, 0.75); margin: 0;
+    }
+
+    /* Badge — Figma: 110×110 starburst */
+    .hero-slider__badge {
+      position: relative; display: inline-flex; align-items: center; justify-content: center;
+      width: 110px; height: 110px; flex-shrink: 0;
+    }
     .hero-slider__badge-icon { width: 110px; height: 110px; }
-    .hero-slider__badge-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Sansation', sans-serif; font-weight: 700; font-size: 50px; line-height: 60px; color: #FFFFFF; }
+    .hero-slider__badge-text {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Sansation', sans-serif; font-weight: 700;
+      font-size: 50px; line-height: 60px; color: #FFFFFF;
+    }
 
+    /* CTA Button — Figma: 325×90 gradient */
     .hero-slider__btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 12px;
       width: 325px; height: 90px;
       background: linear-gradient(180deg, #5BC5ED 0%, #31B2EB 50%, #1A8BC0 100%);
-      border: 2px solid rgba(255,255,255,0.3); border-radius: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 12px;
       text-decoration: none; cursor: pointer; transition: all 0.3s ease; margin-top: 8px;
     }
-    .hero-slider__btn span { font-family: 'Sansation', sans-serif; font-weight: 700; font-size: 20px; line-height: 24px; color: #FFFFFF; text-transform: uppercase; letter-spacing: 1px; }
+    .hero-slider__btn span {
+      font-family: 'Sansation', sans-serif; font-weight: 700;
+      font-size: 20px; line-height: 24px; color: #FFFFFF;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
     .hero-slider__btn-cart { width: 20px; height: 20px; color: #FFFFFF; }
-    .hero-slider__btn:hover { background: linear-gradient(180deg, #6FD1F2 0%, #45C0F0 50%, #2B9AD0 100%); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(49, 178, 235, 0.3); }
-
-    .hero-slider__character { position: relative; flex-shrink: 0; width: 388px; align-self: flex-end; }
-    .hero-slider__character-img { width: 100%; height: auto; display: block; position: relative; z-index: 2; }
-    .hero-slider__character-shadow { position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); width: 80%; height: 20px; background: radial-gradient(ellipse, rgba(16,30,30,0.5) 0%, transparent 70%); filter: blur(10px); z-index: 1; }
-
-    .hero-slider__pagination { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
-    .hero-slider__dot { width: 30px; height: 3px; border: none; padding: 0; background: rgba(255,255,255,0.5); cursor: pointer; border-radius: 2px; transition: opacity 0.3s ease, background 0.3s ease; }
-    .hero-slider__dot.is-active { background: #FFFFFF; opacity: 1; }
-    .hero-slider__dot:hover { background: rgba(255,255,255,0.8); }
-
-    @media screen and (max-width: 749px) {
-      .hero-slider__slide { min-height: 720px; }
-      .hero-slider__content { flex-direction: column; align-items: center; justify-content: flex-start; padding: 24px 20px 40px; text-align: center; min-height: 720px; }
-      .hero-slider__text-group { max-width: 320px; align-items: center; order: 1; }
-      .hero-slider__heading { font-size: 38px; line-height: 42px; }
-      .hero-slider__heading-highlight { font-size: 38px; line-height: 42px; }
-      .hero-slider__badge { width: 60px; height: 60px; margin-top: -12px; }
-      .hero-slider__badge-icon { width: 60px; height: 60px; }
-      .hero-slider__badge-text { font-size: 26px; line-height: 30px; }
-      .hero-slider__btn { width: 320px; height: 80px; margin-top: 4px; }
-      .hero-slider__character { width: 197px; order: 2; margin-top: 16px; }
-      .hero-slider__pagination { bottom: 10px; }
+    .hero-slider__btn:hover {
+      background: linear-gradient(180deg, #6FD1F2 0%, #45C0F0 50%, #2B9AD0 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(49, 178, 235, 0.3);
     }
 
+    /* Character — Figma: 388×810 positioned right */
+    .hero-slider__character {
+      position: relative; flex-shrink: 0; width: 388px; align-self: flex-end;
+    }
+    .hero-slider__character-img {
+      width: 100%; height: auto; display: block; position: relative; z-index: 2;
+    }
+    .hero-slider__character-shadow {
+      position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+      width: 80%; height: 20px;
+      background: radial-gradient(ellipse, rgba(16, 30, 30, 0.5) 0%, transparent 70%);
+      filter: blur(10px); z-index: 1;
+    }
+
+    /* Pagination — Figma: 30px bars, centered at bottom */
+    .hero-slider__pagination {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 10px; z-index: 10;
+    }
+    .hero-slider__dot {
+      width: 30px; height: 3px; border: none; padding: 0;
+      background: rgba(255, 255, 255, 0.5); cursor: pointer; border-radius: 2px;
+      transition: opacity 0.3s ease, background 0.3s ease;
+    }
+    .hero-slider__dot.is-active { background: #FFFFFF; }
+    .hero-slider__dot:hover { background: rgba(255, 255, 255, 0.8); }
+
+    /* ========== MOBILE — Figma: 360×720 ========== */
+    @media screen and (max-width: 749px) {
+      .hero-slider__slide { min-height: auto; }
+      .hero-slider__content {
+        flex-direction: column; align-items: center; justify-content: center;
+        padding: 40px 20px 60px; text-align: center;
+        min-height: 100vh; gap: 24px;
+      }
+      .hero-slider__text-group {
+        max-width: 320px; align-items: center;
+      }
+      .hero-slider__heading { font-size: 36px; line-height: 42px; }
+      .hero-slider__heading-highlight { font-size: 36px; line-height: 42px; }
+      .hero-slider__subtitle { font-size: 16px; line-height: 24px; }
+      .hero-slider__badge { width: 60px; height: 60px; }
+      .hero-slider__badge-icon { width: 60px; height: 60px; }
+      .hero-slider__badge-text { font-size: 26px; line-height: 30px; }
+      .hero-slider__btn { width: 100%; max-width: 320px; height: 70px; }
+      .hero-slider__btn span { font-size: 18px; }
+      .hero-slider__character { width: 180px; }
+      .hero-slider__pagination { bottom: 16px; }
+      .demo-header h1 { font-size: 20px; }
+      .demo-header .tokens { gap: 6px; }
+      .demo-header .token { padding: 6px 10px; font-size: 11px; }
+      .section-label { font-size: 14px; }
+      .pipeline-info { margin: 20px 10px; padding: 16px; }
+      .pipeline-info pre { font-size: 11px; padding: 10px; }
+      .comparison { padding: 0 10px; }
+    }
+
+    /* Tablet */
     @media screen and (min-width: 750px) and (max-width: 1199px) {
       .hero-slider__content { padding: 60px 60px; }
       .hero-slider__heading { font-size: 52px; line-height: 58px; }
@@ -117,7 +185,7 @@
       .hero-slider__badge-text { font-size: 38px; line-height: 46px; }
     }
 
-    /* ---- Comparison section ---- */
+    /* ---- Comparison ---- */
     .comparison { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
     .comparison h3 { color: #fff; margin-bottom: 12px; font-size: 20px; }
     .comparison img { width: 100%; border: 1px solid #333; border-radius: 8px; margin-bottom: 40px; }
@@ -131,7 +199,7 @@
     .pipeline-info h3 { margin-bottom: 16px; color: #31B2EB; }
     .pipeline-info pre {
       background: #0d0d0d; padding: 16px; border-radius: 8px; overflow-x: auto;
-      font-size: 13px; line-height: 1.5; color: #ccc;
+      font-size: 13px; line-height: 1.5; color: #ccc; white-space: pre-wrap;
     }
     .pipeline-info ul { padding-left: 20px; margin: 12px 0; }
     .pipeline-info li { margin: 6px 0; color: #aaa; font-size: 14px; }
@@ -140,21 +208,18 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <div class="demo-header">
     <h1>🎨 Figma → Code Pipeline Demo</h1>
     <p>Vape Nation Hero Slider — auto-generated from Figma file <code>LA4MAnhlToNNvYAzFDSmN7</code></p>
     <div class="tokens">
-      <div class="token"><div class="token-swatch" style="background:#0F1D1D"></div><span>#0F1D1D — Dark</span></div>
-      <div class="token"><div class="token-swatch" style="background:#31B2EB"></div><span>#31B2EB — Accent</span></div>
-      <div class="token"><div class="token-swatch" style="background:#1C2420"></div><span>#1C2420 — Text</span></div>
+      <div class="token"><div class="token-swatch" style="background:#0F1D1D"></div><span>#0F1D1D</span></div>
+      <div class="token"><div class="token-swatch" style="background:#31B2EB"></div><span>#31B2EB</span></div>
+      <div class="token"><div class="token-swatch" style="background:#1C2420"></div><span>#1C2420</span></div>
       <div class="token"><span style="font-family:'Jost';font-weight:700">Jost 700</span></div>
-      <div class="token"><span style="font-family:'Exo 2';font-weight:400">Sansation 400</span></div>
       <div class="token"><span style="font-family:'Exo 2';font-weight:700">Sansation 700</span></div>
     </div>
   </div>
 
-  <!-- LIVE SLIDER -->
   <div class="section-label">▼ Generated Component (Live)</div>
 
   <section class="hero-slider" data-section-type="hero-slider">
@@ -162,7 +227,7 @@
       <!-- Slide 1 -->
       <div class="hero-slider__slide is-active" data-slide-index="0">
         <div class="hero-slider__bg">
-          <div style="position:absolute;inset:0;background:linear-gradient(135deg, #0F1D1D 0%, #1a3a3a 40%, #0F1D1D 100%)"></div>
+          <img class="hero-slider__bg-img" src="desktop-slider.png" alt="Background">
         </div>
         <div class="hero-slider__content">
           <div class="hero-slider__text-group">
@@ -173,12 +238,12 @@
             </h2>
             <div class="hero-slider__badge">
               <svg class="hero-slider__badge-icon" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M55 0L67.5 10L82 5L88 20L103 22L101 37L113 47L105 60L110 75L96 80L93 96L78 93L67.5 105L55 98L42.5 105L32 93L17 96L14 80L0 75L5 60L-3 47L9 37L7 22L22 20L28 5L42.5 10L55 0Z" fill="#31B2EB"/>
+                <path d="M55 2L65 11L78 6.5L83.5 20L97 21.5L95.5 35.5L106 44.5L99 56L103.5 69.5L91 74L88.5 88.5L74.5 86L65 96.5L55 90L45 96.5L35.5 86L21.5 88.5L19 74L6.5 69.5L11 56L4 44.5L14.5 35.5L13 21.5L26.5 20L32 6.5L45 11L55 2Z" fill="#31B2EB"/>
               </svg>
               <span class="hero-slider__badge-text">%</span>
             </div>
             <p class="hero-slider__subtitle">Only until the end of January, discounts on all products</p>
-            <a href="#" class="hero-slider__btn">
+            <a href="#" class="hero-slider__btn" onclick="event.preventDefault()">
               <svg class="hero-slider__btn-cart" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -187,8 +252,8 @@
             </a>
           </div>
           <div class="hero-slider__character">
-            <div style="width:388px;height:600px;background:linear-gradient(180deg,rgba(49,178,235,0.15) 0%, transparent 100%);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#31B2EB;font-size:14px;text-align:center;padding:20px;">
-              Character Image<br>(388×810px PNG)
+            <div style="width:100%;aspect-ratio:388/700;background:linear-gradient(180deg,rgba(49,178,235,0.1) 0%,transparent 100%);border-radius:12px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:13px;text-align:center;border:1px dashed rgba(255,255,255,0.15);padding:10px;">
+              Character<br>PNG
             </div>
             <div class="hero-slider__character-shadow"></div>
           </div>
@@ -208,7 +273,7 @@
               vape collection 2026
             </h2>
             <p class="hero-slider__subtitle">Explore our latest premium devices and flavors</p>
-            <a href="#" class="hero-slider__btn">
+            <a href="#" class="hero-slider__btn" onclick="event.preventDefault()">
               <svg class="hero-slider__btn-cart" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -221,87 +286,69 @@
     </div>
 
     <div class="hero-slider__pagination">
-      <button class="hero-slider__dot is-active"><span class="visually-hidden">Slide 1</span></button>
-      <button class="hero-slider__dot"><span class="visually-hidden">Slide 2</span></button>
-      <button class="hero-slider__dot"><span class="visually-hidden">Slide 3</span></button>
-      <button class="hero-slider__dot"><span class="visually-hidden">Slide 4</span></button>
-      <button class="hero-slider__dot"><span class="visually-hidden">Slide 5</span></button>
+      <button class="hero-slider__dot is-active" data-slide-index="0"><span class="visually-hidden">Slide 1</span></button>
+      <button class="hero-slider__dot" data-slide-index="1"><span class="visually-hidden">Slide 2</span></button>
     </div>
   </section>
 
-  <!-- Slider JS -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const section = document.querySelector('[data-section-type="hero-slider"]');
+      var section = document.querySelector('[data-section-type="hero-slider"]');
       if (!section) return;
-      const slides = section.querySelectorAll('.hero-slider__slide');
-      const dots = section.querySelectorAll('.hero-slider__dot');
+      var slides = section.querySelectorAll('.hero-slider__slide');
+      var dots = section.querySelectorAll('.hero-slider__dot');
       if (slides.length <= 1) return;
-      let current = 0;
-      let interval = null;
+      var current = 0, interval = null;
 
-      function goToSlide(index) {
+      function goTo(i) {
         slides[current].classList.remove('is-active');
         dots[current].classList.remove('is-active');
-        current = index;
+        current = i;
         slides[current].classList.add('is-active');
         dots[current].classList.add('is-active');
       }
+      function next() { goTo((current + 1) % slides.length); }
+      function play() { interval = setInterval(next, 5000); }
+      function stop() { clearInterval(interval); }
 
-      function nextSlide() { goToSlide((current + 1) % slides.length); }
-      function startAutoplay() { interval = setInterval(nextSlide, 5000); }
-      function stopAutoplay() { clearInterval(interval); }
-
-      dots.forEach(function (dot) {
-        dot.addEventListener('click', function () {
-          stopAutoplay();
-          goToSlide(parseInt(this.dataset.slideIndex, 10));
-          startAutoplay();
-        });
+      dots.forEach(function (d) {
+        d.addEventListener('click', function () { stop(); goTo(+this.dataset.slideIndex); play(); });
       });
 
-      let touchStartX = 0;
-      section.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+      var tx = 0;
+      section.addEventListener('touchstart', function (e) { tx = e.changedTouches[0].screenX; }, { passive: true });
       section.addEventListener('touchend', function (e) {
-        const diff = e.changedTouches[0].screenX - touchStartX;
-        if (Math.abs(diff) > 50) {
-          stopAutoplay();
-          goToSlide(diff < 0 ? (current + 1) % slides.length : (current - 1 + slides.length) % slides.length);
-          startAutoplay();
-        }
+        var d = e.changedTouches[0].screenX - tx;
+        if (Math.abs(d) > 50) { stop(); goTo(d < 0 ? (current+1)%slides.length : (current-1+slides.length)%slides.length); play(); }
       }, { passive: true });
 
-      section.addEventListener('mouseenter', stopAutoplay);
-      section.addEventListener('mouseleave', startAutoplay);
-      startAutoplay();
+      section.addEventListener('mouseenter', stop);
+      section.addEventListener('mouseleave', play);
+      play();
     });
   </script>
 
-  <!-- PIPELINE INFO -->
   <div class="pipeline-info">
     <h3>🔧 Pipeline: Figma → Shopify Liquid</h3>
     <ul>
       <li><strong>Input:</strong> Figma file <code>LA4MAnhlToNNvYAzFDSmN7</code> → REST API → JSON tree</li>
       <li><strong>Extracted:</strong> Design tokens (fonts, colors, spacing, sizes)</li>
       <li><strong>Output:</strong> <code>hero-slider.liquid</code> (298 lines) + <code>hero-slider.css</code> (365 lines)</li>
-      <li><strong>Features:</strong> Shopify <code>{% schema %}</code>, responsive (mobile/tablet/desktop), autoplay, swipe, pagination</li>
-      <li><strong>Fonts:</strong> Jost 700, Sansation 400/700 (Exo 2 substitute in preview)</li>
+      <li><strong>Features:</strong> Shopify <code>{% schema %}</code>, responsive breakpoints, autoplay, swipe, pagination</li>
+      <li><strong>Fonts:</strong> Jost 700, Sansation 400/700</li>
       <li><strong>Colors:</strong> <code>#0F1D1D</code> dark, <code>#31B2EB</code> accent, <code>#1C2420</code> subtitle</li>
     </ul>
-    <pre>
-Figma API → JSON tree → Parse nodes
-    ↓
+    <pre>Figma API → JSON tree → Parse nodes
+  ↓
 Extract design tokens (colors, fonts, sizes, spacing)
-    ↓
+  ↓
 Generate Liquid section (schema + blocks + settings)
-    ↓
+  ↓
 Generate CSS (Figma-exact values, responsive breakpoints)
-    ↓
-Output: sections/hero-slider.liquid + assets/hero-slider.css
-    </pre>
+  ↓
+Output: sections/hero-slider.liquid + assets/hero-slider.css</pre>
   </div>
 
-  <!-- FIGMA COMPARISON -->
   <div class="comparison">
     <h3>📐 Figma Reference (Desktop 1920×720)</h3>
     <img src="desktop-slider.png" alt="Figma Desktop">
